@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Task Board</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Engineering Workshop</p>
+        <h1>Team Task Board</h1>
+        <p class="subtitle">A small dependency-free app for the GitHub Copilot live demo.</p>
+      </div>
+      <button id="reset-button" class="button button-secondary" type="button">Reset demo data</button>
+    </header>
+
+    <section class="panel" aria-labelledby="add-task-heading">
+      <h2 id="add-task-heading">Add a task</h2>
+      <form id="task-form" class="task-form">
+        <label for="task-title">Task description</label>
+        <div class="form-row">
+          <input
+            id="task-title"
+            name="title"
+            type="text"
+            maxlength="120"
+            placeholder="For example: Review test results"
+            autocomplete="off"
+            required>
+          <button class="button button-primary" type="submit">Add task</button>
+        </div>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="board" aria-label="Task board">
+      <section class="panel task-column" aria-labelledby="open-heading">
+        <div class="section-heading">
+          <h2 id="open-heading">Open tasks</h2>
+          <span id="open-count" class="count-badge">0</span>
+        </div>
+        <ul id="open-task-list" class="task-list"></ul>
+        <p id="open-empty-state" class="empty-state">No open tasks.</p>
+      </section>
+
+      <section class="panel task-column" aria-labelledby="completed-heading">
+        <div class="section-heading">
+          <h2 id="completed-heading">Completed tasks</h2>
+          <span id="completed-count" class="count-badge">0</span>
+        </div>
+        <ul id="completed-task-list" class="task-list"></ul>
+        <p id="completed-empty-state" class="empty-state">No completed tasks.</p>
+      </section>
+    </section>
+  </main>
+
+  <template id="task-item-template">
+    <li class="task-item">
+      <label class="task-main">
+        <input class="task-checkbox" type="checkbox">
+        <span class="task-title"></span>
+      </label>
+      <button class="delete-button" type="button" aria-label="Delete task">Delete</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
