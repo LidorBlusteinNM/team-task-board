@@ -1,8 +1,10 @@
 {
   "search.exclude": {
-    "**/demo-prompts/**": true
+    "**/demo-prompts/**": true,
+    "../docs/**": true
   },
   "files.watcherExclude": {
-    "**/demo-prompts/**": true
+    "**/demo-prompts/**": true,
+    "../docs/**": true
   }
 }
